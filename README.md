@@ -18,6 +18,6 @@ checks node module versions oder modules installed in `./node_modules` against l
 1) Make sure you have a populated `compromised.txt`
 2) Execute
 
-   `./npmcheck <target dir>``
+   `./npmcheck <target dir>`
 
 If you omit `<target dir>` the programm will use the current directory.
