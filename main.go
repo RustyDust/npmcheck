@@ -22,7 +22,7 @@ func main() {
 	// -- get list of compromised packages
 	kompromat, err := readCompromisedList()
 	if err != nil {
-		log.Fatalf("unable to read 'compromised.txt': %w", err)
+		log.Fatalf("unable to read 'compromised.txt': %v", err)
 	}
 
 	// -- get dir to work on
@@ -38,9 +38,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("no directory 'node_modules' found in %s", searchBase)
 	}
-
-	fmt.Printf("Checking: %s/node_modules\n\n", searchBase)
-	checkDir(fmt.Sprintf("%s/node_modules", searchBase), kompromat)
 
 	// -- check for node_modules of directly imported modues
 	out, err := exec.Command("/usr/bin/find", fmt.Sprintf("%s/node_modules/", searchBase), "-name", "node_modules").Output()
